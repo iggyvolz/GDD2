@@ -7,8 +7,9 @@ public class PlayerScript : MonoBehaviour {
     public float moveMag;
     public float jumpMag;
 
-    private Vector3 myVelocity;
+    //private Vector3 myVelocity;
     private int jumpsLeft;
+    private float score;
 
 	// Use this for initialization
 	void Start ()
@@ -19,6 +20,7 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+        score += Time.deltaTime;
         transform.rotation = Quaternion.identity;
         GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
 
@@ -48,6 +50,15 @@ public class PlayerScript : MonoBehaviour {
             jumpsLeft--;
         }
 	}
+
+    public void AddScore(int deltaScore)
+    {
+        if (deltaScore < 0)
+        {
+            deltaScore *= -1;
+        }
+        score += deltaScore;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
