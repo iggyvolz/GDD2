@@ -5,6 +5,7 @@ using UnityEngine;
 public class FallingBombScript : Hazard {
     
     public float deathRange;
+    public float fallHeight;
 
     private GameObject player;
 
@@ -32,8 +33,34 @@ public class FallingBombScript : Hazard {
         }
     }
 
-    public override void Implement()
+    public override Vector3 GetImplementLoc1()
     {
+        GameObject ground = GameObject.Find("Ground");
+        if (ground)
+        {
+            return new Vector3(
+                Random.Range(ground.transform.position.x - (ground.transform.localScale.x / 2) - 1, ground.transform.position.x + (ground.transform.localScale.x / 2)),
+                fallHeight,
+                Random.Range(ground.transform.position.z - (ground.transform.localScale.z / 2) - 1, ground.transform.position.z + (ground.transform.localScale.z / 2)));
+        }
+        else
+        {
+            throw new System.Exception("invalid gameobject 'Ground' in FallingBombScript");
+        }
+    }
 
+    public override Vector3 GetImplementLoc2()
+    {
+        return GetImplementLoc1();
+    }
+
+    public override Vector3 GetImplementRot1()
+    {
+        return Vector3.zero;
+    }
+
+    public override Vector3 GetImplementRot2()
+    {
+        return Vector3.zero;
     }
 }

@@ -35,8 +35,34 @@ public class BombScript : Hazard {
         GetComponent<MeshRenderer>().material.color = Color.Lerp(startColor, endColor, timer / timerLimit);
 	}
 
-    public override void Implement()
+    public override Vector3 GetImplementLoc1()
     {
+        GameObject ground = GameObject.Find("Ground");
+        if (ground)
+        {
+            return new Vector3(
+                Random.Range(ground.transform.position.x - (ground.transform.localScale.x / 2) - 1, ground.transform.position.x + (ground.transform.localScale.x / 2)),
+                1.5f,
+                Random.Range(ground.transform.position.z - (ground.transform.localScale.z / 2) - 1, ground.transform.position.z + (ground.transform.localScale.z / 2)));
+        }
+        else
+        {
+            throw new System.Exception("invalid gameobject 'Ground' in BombScript");
+        }
+    }
 
+    public override Vector3 GetImplementLoc2()
+    {
+        return GetImplementLoc1();
+    }
+
+    public override Vector3 GetImplementRot1()
+    {
+        return Vector3.zero;
+    }
+
+    public override Vector3 GetImplementRot2()
+    {
+        return Vector3.zero;
     }
 }
