@@ -39,9 +39,9 @@ public class FallingBombScript : Hazard {
         if (ground)
         {
             return new Vector3(
-                Random.Range(ground.transform.position.x - (ground.transform.localScale.x / 2) - 1, ground.transform.position.x + (ground.transform.localScale.x / 2)),
+                Random.Range(ground.transform.position.x - (ground.transform.localScale.x / 2), ground.transform.position.x + (ground.transform.localScale.x / 2)),
                 fallHeight,
-                Random.Range(ground.transform.position.z - (ground.transform.localScale.z / 2) - 1, ground.transform.position.z + (ground.transform.localScale.z / 2)));
+                Random.Range(ground.transform.position.z - (ground.transform.localScale.z / 2), ground.transform.position.z + (ground.transform.localScale.z / 2)));
         }
         else
         {
@@ -54,13 +54,13 @@ public class FallingBombScript : Hazard {
         return GetImplementLoc1();
     }
 
-    public override Vector3 GetImplementRot1()
+    public override Quaternion GetImplementRot1()
     {
-        return Vector3.zero;
+        return Quaternion.identity;
     }
 
-    public override Vector3 GetImplementRot2()
+    public override Quaternion GetImplementRot2()
     {
-        return Vector3.zero;
+        return Quaternion.identity;
     }
 }

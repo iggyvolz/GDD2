@@ -8,8 +8,8 @@ public abstract class Hazard : MonoBehaviour {
 
     public abstract Vector3 GetImplementLoc1();
     public abstract Vector3 GetImplementLoc2();
-    public abstract Vector3 GetImplementRot1();
-    public abstract Vector3 GetImplementRot2();
+    public abstract Quaternion GetImplementRot1();
+    public abstract Quaternion GetImplementRot2();
 
     public void Score()
     {

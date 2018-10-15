@@ -32,9 +32,9 @@ public class LaserCubeScript : Hazard {
         }
     }
 
-    public override Vector3 GetImplementRot1()
+    public override Quaternion GetImplementRot1()
     {
-        return Vector3.zero;
+        return Quaternion.identity;
     }
 
     public override Vector3 GetImplementLoc2()
@@ -53,8 +53,10 @@ public class LaserCubeScript : Hazard {
         }
     }
 
-    public override Vector3 GetImplementRot2()
+    public override Quaternion GetImplementRot2()
     {
-        return new Vector3(0, -90, 0);
+        // testing to see if it returns the correct angle
+        print(Quaternion.AngleAxis(-90, new Vector3(0, 1, 0)));
+        return Quaternion.AngleAxis(-90, new Vector3(0, 1, 0));
     }
 }
