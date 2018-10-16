@@ -7,6 +7,9 @@ public class FallingBombScript : Hazard {
     public float deathRange;
     public float fallHeight;
 
+    //Explosion prefab holder
+    public GameObject explosion;
+
     private GameObject player;
 
     // Use this for initialization
@@ -30,6 +33,7 @@ public class FallingBombScript : Hazard {
                 Destroy(player);
             }
             Destroy(gameObject);
+            GameObject explosionSpawn = Instantiate(explosion, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
         }
     }
 
