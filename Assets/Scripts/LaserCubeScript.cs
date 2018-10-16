@@ -5,8 +5,10 @@ using UnityEngine;
 public class LaserCubeScript : Hazard {
 
     public float speed;
+    public float time;
     
     private bool odd;
+    private float timer;
 
 	// Use this for initialization
 	void Start ()
@@ -35,6 +37,12 @@ public class LaserCubeScript : Hazard {
         else
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (speed * Time.deltaTime));
+        }
+        timer += Time.deltaTime;
+        if (timer >= time)
+        {
+            Score();
+            Destroy(gameObject);
         }
 	}
 
