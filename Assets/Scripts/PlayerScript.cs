@@ -18,10 +18,10 @@ public class PlayerScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate ()
+	void Update ()
     {
         score += Time.deltaTime;
-        transform.rotation = Quaternion.identity;
+        //transform.rotation = Quaternion.identity;
         GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
 
         if (Input.GetAxis("Horizontal") > 0)

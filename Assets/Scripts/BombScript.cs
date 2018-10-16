@@ -33,8 +33,8 @@ public class BombScript : Hazard {
             {
                 Destroy(player);
             }
-            Destroy(gameObject);
             GameObject explosionSpawn = Instantiate(explosion, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            Destroy(gameObject);
         }
         GetComponent<MeshRenderer>().material.color = Color.Lerp(startColor, endColor, timer / timerLimit);
 	}
