@@ -46,7 +46,7 @@ public class PlayerScript : MonoBehaviour {
             GetComponent<Rigidbody>().velocity.normalized.z * moveMag * Time.deltaTime);
         if (Input.GetButtonDown("Jump") && jumpsLeft > 0)
         {
-            GetComponent<Rigidbody>().velocity += new Vector3(0.0f, jumpMag, 0.0f);
+            GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, jumpMag, GetComponent<Rigidbody>().velocity.z);
             jumpsLeft--;
         }
 	}
