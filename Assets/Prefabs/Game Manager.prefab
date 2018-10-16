@@ -51,3 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7558d73fcfbe2ea4b95d3419f6d7bb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hazardPrefabs:
+  - {fileID: 1154027992691846, guid: f8c7f676979318642b7083f942378375, type: 2}
+  - {fileID: 1437482379864166, guid: 70bfb291555cead4298d2f5f03f852f4, type: 2}
+  - {fileID: 1590534186573924, guid: ce4469894a3deee43916637d11e60a2d, type: 2}
+  - {fileID: 1530035246726066, guid: da4dbacdf7a2772448cef8d5982bd4b1, type: 2}
+  interval: 5

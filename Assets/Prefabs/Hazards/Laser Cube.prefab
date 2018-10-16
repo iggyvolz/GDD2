@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 33801428383866470}
   - component: {fileID: 23180801794990380}
   - component: {fileID: 65540488208832040}
+  - component: {fileID: 114572712932291344}
   m_Layer: 0
   m_Name: Laser Cube
   m_TagString: Untagged
@@ -66,14 +67,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1530035246726066}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.08, y: 1, z: 5.88}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 13.5, y: 1, z: 17.5}
   m_LocalScale: {x: 2.4756744, y: 2.4756744, z: 2.4756744}
   m_Children:
   - {fileID: 4870942320220010}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &23180801794990380
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -170,6 +171,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114572712932291344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530035246726066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3ecc8405e43ec4883aa9cab545f983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 20
 --- !u!136 &136141326487177656
 CapsuleCollider:
   m_ObjectHideFlags: 1

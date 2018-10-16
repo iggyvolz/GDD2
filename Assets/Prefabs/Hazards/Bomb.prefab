@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e66f9346df419842b2c399873f86eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  score: 10
   timerLimit: 5
   deathRange: 5
   startColor: {r: 0, g: 0, b: 0, a: 0}

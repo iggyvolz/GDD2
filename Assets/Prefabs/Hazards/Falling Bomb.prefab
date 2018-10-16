@@ -112,8 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006f243ea2202b9499b801ecc9321bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  score: 10
   deathRange: 5
+  fallHeight: 20
 --- !u!135 &135607530618144000
 SphereCollider:
   m_ObjectHideFlags: 1

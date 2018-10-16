@@ -4,16 +4,38 @@ using UnityEngine;
 
 public class LaserCubeScript : Hazard {
 
+    public float speed;
+    
+    private bool odd;
+
 	// Use this for initialization
 	void Start ()
     {
-		
+        GameObject ground = GameObject.Find("Ground");
+        if (transform.position == new Vector3(
+                ground.transform.position.x + (ground.transform.localScale.x / 2) + 1,
+                ground.transform.position.y + 1,
+                ground.transform.position.z + (ground.transform.localScale.z / 2) + 5))
+        {
+            odd = true;
+        }
+        else
+        {
+            odd = false;
+        }
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
-		
+		if (odd)
+        {
+            transform.position = new Vector3(transform.position.x - (speed * Time.deltaTime), transform.position.y, transform.position.z);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (speed * Time.deltaTime));
+        }
 	}
 
     public override Vector3 GetImplementLoc1()

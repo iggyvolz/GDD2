@@ -25,6 +25,7 @@ public class GameManagerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        timer += Time.deltaTime;
 		if (timer >= interval)
         {
             timer -= interval;

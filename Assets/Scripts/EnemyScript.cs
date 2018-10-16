@@ -22,6 +22,7 @@ public class EnemyScript : Hazard {
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
+            Score();
             Destroy(gameObject);
         }
         transform.rotation = Quaternion.identity;
