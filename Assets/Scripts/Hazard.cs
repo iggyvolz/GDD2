@@ -13,6 +13,9 @@ public abstract class Hazard : MonoBehaviour {
 
     public void Score()
     {
-        GameObject.Find("Player").GetComponent<PlayerScript>().AddScore(score);
+        if (GameObject.Find("Player"))
+        {
+            GameObject.Find("Player").GetComponent<PlayerScript>().AddScore(score);
+        }
     }
 }
