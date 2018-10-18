@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour {
 
     public GameObject[] hazardPrefabs;
+    public GameObject player;
     public float interval;
 
     //private List<GameObject> activeHazards;
     private float timer;
+    private float score;
     private bool odd;
 
 	// Use this for initialization
@@ -21,10 +23,32 @@ public class GameManagerScript : MonoBehaviour {
             throw new System.Exception("Something cannot every at or less than every 0 seconds. Change interval in the GameManager Prefab");
         }
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+   
+
+    //writing score on screen
+    private void OnGUI()
     {
+        if (player)
+        {
+            //score display
+            GUI.Box(new Rect(10, 10, 250, 23), "Score: " + score);
+        }
+        else if (player == null)
+        {
+            //death
+            GUI.Box(new Rect(10, 10, 250, 23), "Game Over!");
+
+            //final score
+            GUI.Box(new Rect(10, 31, 250, 23), "Final Score: " + score) ;
+        }
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
+        score = player.GetComponent<PlayerScript>().Score();
+
         timer += Time.deltaTime;
 		if (timer >= interval)
         {

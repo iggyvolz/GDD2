@@ -51,6 +51,12 @@ public class PlayerScript : MonoBehaviour {
         }
 	}
 
+    //accessing score of the player
+    public float Score()
+    {
+       return score;
+    }
+
     public void AddScore(int deltaScore)
     {
         if (deltaScore < 0)
