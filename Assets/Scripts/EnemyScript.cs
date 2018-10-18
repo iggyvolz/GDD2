@@ -57,12 +57,18 @@ public class EnemyScript : Hazard {
     public override Vector3 GetImplementLoc1()
     {
         GameObject ground = GameObject.Find("Ground");
+        Vector3 myVec;
         if (ground)
         {
-            return new Vector3(
+            do
+            {
+                myVec = new Vector3(
                 Random.Range(ground.transform.position.x - (ground.transform.localScale.x / 2), ground.transform.position.x + (ground.transform.localScale.x / 2)),
                 1.5f,
                 Random.Range(ground.transform.position.z - (ground.transform.localScale.z / 2), ground.transform.position.z + (ground.transform.localScale.z / 2)));
+            }
+            while ((myVec - GameObject.Find("Player").transform.position).magnitude < 4);
+            return myVec;
         }
         else
         {

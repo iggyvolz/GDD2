@@ -36,6 +36,7 @@ public class FallingBombScript : Hazard {
         if (other.CompareTag("Ground"))
         {
             GameObject explosionSpawn = Instantiate(explosion, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            Score();
             Destroy(gameObject);
         }
     }

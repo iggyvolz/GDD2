@@ -28,12 +28,14 @@ public class BombScript : Hazard {
         timer += Time.deltaTime;
         if (timer >= timerLimit)
         {
-            timer = timerLimit;
-            if (player && (player.transform.position - transform.position).magnitude <= deathRange)
+            foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
             {
-                Destroy(player);
+                Exterminate(enemy);
             }
+            timer = timerLimit;
+            Exterminate(player);
             GameObject explosionSpawn = Instantiate(explosion, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            Score();
             Destroy(gameObject);
         }
         GetComponent<MeshRenderer>().material.color = Color.Lerp(startColor, endColor, timer / timerLimit);
@@ -68,5 +70,13 @@ public class BombScript : Hazard {
     public override Quaternion GetImplementRot2()
     {
         return Quaternion.identity;
+    }
+
+    private void Exterminate(GameObject obj)
+    {
+        if (obj && (obj.transform.position - transform.position).magnitude <= deathRange)
+        {
+            Destroy(obj);
+        }
     }
 }
