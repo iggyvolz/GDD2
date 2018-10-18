@@ -50,7 +50,7 @@ public class EnemyScript : Hazard {
     {
         if (other.GetComponent<Collider>().CompareTag("Hazard"))
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

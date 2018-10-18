@@ -71,7 +71,7 @@ public class PlayerScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Collider>().CompareTag("Hazard"))
+        if (other.GetComponent<Collider>().CompareTag("Hazard") || other.GetComponent<Collider>().CompareTag("Enemy"))
         {
             gameObject.SetActive(false);
         }

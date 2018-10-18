@@ -4,34 +4,37 @@ using UnityEngine;
 
 public class FallingBombScript : Hazard {
     
-    public float deathRange;
     public float fallHeight;
-
+    public float initialScale;
+    public float finalScale;
     //Explosion prefab holder
     public GameObject explosion;
 
     private GameObject player;
+    private GameObject ground;
+    private float distancePercent;
 
     // Use this for initialization
     void Start()
     {
+        transform.localScale = new Vector3(initialScale, initialScale, initialScale);
         player = GameObject.Find("Player");
+        ground = GameObject.Find("Ground");
+        distancePercent = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        distancePercent = 1 / ((transform.position - ground.transform.position).magnitude / fallHeight);
+        float scale = (((finalScale - initialScale) * distancePercent) / finalScale);
+        transform.localScale = new Vector3(scale, scale, scale);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag("Ground"))
+        if (other.CompareTag("Ground"))
         {
-            if ((player.transform.position - transform.position).magnitude <= deathRange)
-            {
-                Destroy(player);
-            }
             GameObject explosionSpawn = Instantiate(explosion, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
             Destroy(gameObject);
         }
