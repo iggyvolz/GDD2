@@ -7,14 +7,17 @@ public class PlayerScript : MonoBehaviour {
     public float moveMag;
     public float jumpMag;
 
+
     //private Vector3 myVelocity;
     private int jumpsLeft;
+    //private int lives;
     private float score;
 
 	// Use this for initialization
 	void Start ()
     {
         jumpsLeft = 2;
+        //lives = 1;
 	}
 	
 	// Update is called once per frame
@@ -54,8 +57,14 @@ public class PlayerScript : MonoBehaviour {
     //accessing score of the player
     public float Score()
     {
-       return score;
+        return score;
     }
+
+    //accessing lives of the player
+    //public float Lives()
+    //{
+        //return lives;
+    //}
 
     public void AddScore(int deltaScore)
     {
@@ -79,7 +88,9 @@ public class PlayerScript : MonoBehaviour {
     {
         if (other.GetComponent<Collider>().CompareTag("Hazard") || other.GetComponent<Collider>().CompareTag("Enemy"))
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
+            //lives = 0;
+            //Application.LoadLevel(Application.loadedLevel); RESETS SCENE, USE FOR GAMEOVER SCENARIO(?)
         }
     }
 }

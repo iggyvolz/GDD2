@@ -7,6 +7,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject[] hazardPrefabs;
     public GameObject player;
     public float interval;
+    public int lives; // if we want to implement this later
 
     //private List<GameObject> activeHazards;
     private float timer;
@@ -29,18 +30,22 @@ public class GameManagerScript : MonoBehaviour {
     //writing score on screen
     private void OnGUI()
     {
+        //type casting score to int
+        int scoreInt = (int)score;
+
         if (player)
         {
             //score display
-            GUI.Box(new Rect(10, 10, 250, 23), "Score: " + score);
+            GUI.Box(new Rect(10, 10, 250, 23), "Score: " + scoreInt);
         }
+        //condition if we're tracking lives: player.GetComponent<PlayerScript>().Lives() == 0
+        //if dead, display
         else if (player == null)
         {
-            //death
             GUI.Box(new Rect(10, 10, 250, 23), "Game Over!");
 
             //final score
-            GUI.Box(new Rect(10, 31, 250, 23), "Final Score: " + score) ;
+            GUI.Box(new Rect(10, 31, 250, 23), "Final Score: " + scoreInt) ;
         }
     }
 
