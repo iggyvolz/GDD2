@@ -23,30 +23,46 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        print("Horizontal: " + Input.GetAxis("Horizontal"));
+        //print("Vertical: " + Input.GetAxis("Vertical"));
         score += Time.deltaTime;
         //transform.rotation = Quaternion.identity;
-        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
+        //GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
 
-        if (Input.GetAxis("Horizontal") > 0)
+        //if (Input.GetAxis("Horizontal") > 0)
+        //{
+        //    GetComponent<Rigidbody>().velocity += new Vector3(1f, 0.0f, -1f);
+        //}
+        //if (Input.GetAxis("Horizontal") < 0)
+        //{
+        //    GetComponent<Rigidbody>().velocity += new Vector3(-1f, 0.0f, 1f);
+        //}
+        //if (Input.GetAxis("Vertical") > 0)
+        //{
+        //    GetComponent<Rigidbody>().velocity += new Vector3(1f, 0.0f, 1f);
+        //}
+        //if (Input.GetAxis("Vertical") < 0)
+        //{
+        //    GetComponent<Rigidbody>().velocity += new Vector3(-1f, 0.0f, -1f);
+        //}
+        //GetComponent<Rigidbody>().velocity = new Vector3(
+        //    GetComponent<Rigidbody>().velocity.normalized.x * moveMag * Time.deltaTime,
+        //    GetComponent<Rigidbody>().velocity.y,
+        //    GetComponent<Rigidbody>().velocity.normalized.z * moveMag * Time.deltaTime);
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
-            GetComponent<Rigidbody>().velocity += new Vector3(1f, 0.0f, -1f);
+            GetComponent<Rigidbody>().velocity =
+            Quaternion.Euler(0.0f, 45.0f, 0.0f) *
+            new Vector3(
+                Input.GetAxis("Horizontal") * moveMag,
+                GetComponent<Rigidbody>().velocity.y,
+                Input.GetAxis("Vertical") * moveMag);
         }
-        if (Input.GetAxis("Horizontal") < 0)
+        else
         {
-            GetComponent<Rigidbody>().velocity += new Vector3(-1f, 0.0f, 1f);
+            GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
         }
-        if (Input.GetAxis("Vertical") > 0)
-        {
-            GetComponent<Rigidbody>().velocity += new Vector3(1f, 0.0f, 1f);
-        }
-        if (Input.GetAxis("Vertical") < 0)
-        {
-            GetComponent<Rigidbody>().velocity += new Vector3(-1f, 0.0f, -1f);
-        }
-        GetComponent<Rigidbody>().velocity = new Vector3(
-            GetComponent<Rigidbody>().velocity.normalized.x * moveMag * Time.deltaTime,
-            GetComponent<Rigidbody>().velocity.y,
-            GetComponent<Rigidbody>().velocity.normalized.z * moveMag * Time.deltaTime);
+
         if (Input.GetButtonDown("Jump") && jumpsLeft > 0)
         {
             GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, jumpMag, GetComponent<Rigidbody>().velocity.z);

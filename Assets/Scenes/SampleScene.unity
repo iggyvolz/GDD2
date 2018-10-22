@@ -485,6 +485,11 @@ Prefab:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 114177549380330706, guid: 215531bae02bd8a4f82b99aa1453b95c,
+        type: 2}
+      propertyPath: moveMag
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 215531bae02bd8a4f82b99aa1453b95c, type: 2}
   m_IsPrefabAsset: 0
@@ -537,6 +542,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1561352056}
+    - target: {fileID: 1276501289060112, guid: 8a6e8c8f01621404f922d5c1de70bb50, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a6e8c8f01621404f922d5c1de70bb50, type: 2}
   m_IsPrefabAsset: 0
