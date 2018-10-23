@@ -52,7 +52,10 @@ public class GameManagerScript : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        score = player.GetComponent<PlayerScript>().Score();
+        if (player)
+        {
+            score = player.GetComponent<PlayerScript>().Score();
+        }
 
         timer += Time.deltaTime;
 		if (timer >= interval)
