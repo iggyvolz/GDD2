@@ -68,7 +68,7 @@ public class PlayerScript : MonoBehaviour {
             GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, jumpMag, GetComponent<Rigidbody>().velocity.z);
             jumpsLeft--;
         }
-        if (gameObject.transform.position.y < -0.5f) Destroy(gameObject);
+        if (gameObject.transform.position.y < -4f) Destroy(gameObject);
 	}
 
     //accessing score of the player
