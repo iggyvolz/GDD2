@@ -23,7 +23,7 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        print("Horizontal: " + Input.GetAxis("Horizontal"));
+        //print("Horizontal: " + Input.GetAxis("Horizontal"));
         //print("Vertical: " + Input.GetAxis("Vertical"));
         score += Time.deltaTime;
         //transform.rotation = Quaternion.identity;
@@ -68,6 +68,7 @@ public class PlayerScript : MonoBehaviour {
             GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, jumpMag, GetComponent<Rigidbody>().velocity.z);
             jumpsLeft--;
         }
+        if (gameObject.transform.position.y < -0.5f) Destroy(gameObject);
 	}
 
     //accessing score of the player
